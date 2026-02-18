@@ -12,7 +12,7 @@ export default function App() {
             .fill(0)
             .map(() => ({
                 value: Math.ceil(Math.random() * 6),
-                isHeld: true,
+                isHeld: false,
                 id: nanoid()
             }))
     }
@@ -22,7 +22,13 @@ export default function App() {
     }
 
     function Hold(id){
-      console.log(id)
+         setDice(oldDice => {
+            return oldDice.map(die => {
+                return die.id === id ?
+                    {...die, isHeld: !die.isHeld} :
+                    die
+            })
+        })
     }
 
     const diceElements = dice.map(dieObj => <Die 

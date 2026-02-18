@@ -6,7 +6,7 @@ export default function Die(props) {
     }
     return(
         
-        <button style={styles}className="diceValue">{props.value}</button>
+        <button style={styles}className="diceValue" onClick={props.onClick}>{props.value}</button>
         
     )
 }
